@@ -69,7 +69,8 @@ enum G4SurfaceType
    dielectric_LUT,              // dielectric-Look-Up-Table interface
    dielectric_dichroic,         // dichroic filter interface
    firsov,                      // for Firsov Process
-   x_ray                        // for x-ray mirror process
+   x_ray,                       // for x-ray mirror process
+   custom_boundary              // for custom optical interfaces (subclasses can provide implementation)
 };
 
 /////////////////////

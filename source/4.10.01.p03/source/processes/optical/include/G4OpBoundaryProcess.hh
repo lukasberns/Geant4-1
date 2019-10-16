@@ -175,12 +175,14 @@ public:
         G4OpBoundaryProcessStatus GetStatus() const;
         // Returns the current status.
 
-private:
+protected: // allow subclassing
 
 	G4bool G4BooleanRand(const G4double prob) const;
 
 	G4ThreeVector GetFacetNormal(const G4ThreeVector& Momentum,
 				     const G4ThreeVector&  Normal) const;
+
+        virtual void CustomBoundary(); // for subclassing. Called for "custom" boundary type
 
         void DielectricMetal();
         void DielectricDielectric();
@@ -208,7 +210,7 @@ private:
         // Invoke SD for post step point if the photon is 'detected'
         G4bool InvokeSD(const G4Step* step);
 
-private:
+protected: // allow subclassing
 
 	G4double thePhotonMomentum;
 

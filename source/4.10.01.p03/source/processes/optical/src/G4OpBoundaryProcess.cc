@@ -510,6 +510,9 @@ G4OpBoundaryProcess::PostStepDoIt(const G4Track& aTrack, const G4Step& aStep)
              }
           }
         }
+        else if (type == custom_boundary) {
+          CustomBoundary();
+        }
 	else {
 
 	  G4cerr << " Error: G4BoundaryProcess: illegal boundary type " << G4endl;
@@ -697,6 +700,11 @@ G4OpBoundaryProcess::GetFacetNormal(const G4ThreeVector& Momentum,
 	}
 	return FacetNormal;
 }
+
+void G4OpBoundaryProcess::CustomBoundary() {
+	  G4cerr << " Error: G4BoundaryProcess: CustomBoundary() needs to be implemented in subclass " << G4endl;
+}
+        
 
 void G4OpBoundaryProcess::DielectricMetal()
 {
